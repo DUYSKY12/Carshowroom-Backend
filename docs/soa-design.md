@@ -1,13 +1,13 @@
-# Thiết Kế Kiến Trúc Hướng Dịch Vụ — Showroom Ô Tô SkyCar (SOA Architecture Design Document)
+# Thiết Kế Kiến Trúc Hướng Dịch Vụ — Website Showroom Ô Tô SkyCar (SOA Architecture Design Document)
 
 ---
 
 ## 1. Tổng Quan Kiến Trúc Hệ Thống (Architectural Overview)
 
-Hệ thống **SkyCar** được thiết kế dựa trên triết lý **Kiến trúc Hướng Dịch vụ (Service-Oriented Architecture - SOA)**, áp dụng mô hình **Modular Monolith** trong giai đoạn hiện tại nhằm đảm bảo:
-- **Ranh giới nghiệp vụ độc lập (Loose Coupling & High Cohesion):** Mỗi miền nghiệp vụ được đóng gói thành một Service chuyên biệt với trách nhiệm duy nhất (Single Responsibility).
-- **Giao diện chuẩn hóa (Standardized Contracts):** Toàn bộ giao tiếp giữa Frontend và Backend, cũng như giữa các thành phần nội bộ, đều tuân thủ chuẩn RESTful API với dữ liệu trao đổi dạng JSON và tài liệu OpenAPI 3.0 / Swagger.
-- **Sẵn sàng chuyển đổi (Future-Proof Microservices Migration):** Cấu trúc mã nguồn phân lớp rõ ràng cho phép bóc tách từng dịch vụ thành các container độc lập (Docker/Kubernetes) hoặc tích hợp Message Broker (Kafka / RabbitMQ) mà không cần viết lại mã nguồn tầng nghiệp vụ.
+Hệ thống **Website Showroom Ô Tô SkyCar** (địa chỉ tại 155 Cầu Giấy, Hà Nội) được thiết kế theo mô hình **Kiến trúc Hướng Dịch vụ (Service-Oriented Architecture - SOA)** kết hợp với kiến trúc **Phân lớp (Layered Architecture)**, nhằm phục vụ trọn vẹn cả hai mục tiêu: giới thiệu xe & chăm sóc khách hàng trực tuyến, đồng thời điều hành hoạt động kinh doanh nội bộ của showroom:
+- **Ranh giới nghiệp vụ độc lập (Loose Coupling & High Cohesion):** Toàn bộ hoạt động thực tế của showroom (quản lý kho xe sẵn có, xếp lịch lái thử, xử lý đơn đặt cọc giữ chỗ, chăm sóc khách hàng tiềm năng CRM, mã giảm giá) được phân chia thành từng Lớp Dịch Vụ (Service) chuyên biệt với trách nhiệm rõ ràng.
+- **Giao diện chuẩn hóa (Standardized Contracts):** Toàn bộ giao tiếp giữa giao diện phía người dùng (Frontend) và hệ thống máy chủ (Backend) đều tuân thủ chuẩn RESTful API, trao đổi dữ liệu qua định dạng JSON và tài liệu OpenAPI 3.0 / Swagger.
+- **Tính module hóa và sẵn sàng mở rộng (Modular & Extensible):** Cấu trúc phân lớp mạch lạc giúp Quản trị viên (Anh Duy) và Seller dễ dàng vận hành, đồng thời sẵn sàng bóc tách thành các microservice riêng biệt khi showroom mở rộng quy mô.
 
 ### 1.1 Bảng Phân Tầng Kiến Trúc Hệ Thống (Architectural Layers)
 

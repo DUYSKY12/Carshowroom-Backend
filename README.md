@@ -1,6 +1,6 @@
 # 🚗 SkyCar Enterprise Backend System
 
-Backend hoàn chỉnh cho hệ thống showroom kinh doanh ô tô SkyCar, quản lý kho xe, hình ảnh WebP, đặt lịch lái thử, quy trình bán hàng CRM, mã giảm giá (voucher), đặt cọc đơn hàng và thanh toán, đánh giá & yêu thích, cùng hệ thống báo cáo quản trị toàn diện.
+Backend hoàn chỉnh cho hệ thống Website Showroom Ô Tô SkyCar (155 Cầu Giấy, Hà Nội), phục vụ quản lý kho xe thực tế, hình ảnh WebP, đặt lịch lái thử, quy trình bán hàng CRM, mã giảm giá (voucher), đơn đặt cọc giữ xe và thanh toán, đánh giá & yêu thích, cùng hệ thống báo cáo quản trị toàn diện cho Quản trị viên (Anh Duy) và Seller.
 
 ---
 
