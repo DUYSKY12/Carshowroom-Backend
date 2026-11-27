@@ -24,8 +24,13 @@ export async function getCarRecommendations({
   const params = [maxPrice];
 
   if (seats) {
-    where.push("seats >= ?");
-    params.push(Number(seats));
+    const numSeats = Number(seats);
+    if (numSeats <= 5) {
+      where.push("seats <= 5");
+    } else {
+      where.push("seats >= ?");
+      params.push(numSeats);
+    }
   }
 
   if (brand) {
@@ -127,6 +132,8 @@ Nhiệm vụ của bạn:
     provider: provider.name,
     totalMatched: candidates.length,
     aiExplanation,
-    cars: candidates
+    explanation: aiExplanation,
+    cars: candidates,
+    recommendations: candidates
   };
 }
