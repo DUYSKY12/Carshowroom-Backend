@@ -63,11 +63,15 @@ export async function search(req, res) {
 }
 
 export async function priceEstimate(req, res) {
+  const mileage = req.body.mileageKm !== undefined && req.body.mileageKm !== null
+    ? req.body.mileageKm
+    : (req.body.mileage_km || 0);
+
   const result = await priceEstimationService.estimateCarPrice({
     brand: req.body.brand,
     model: req.body.model,
     year: req.body.year,
-    mileageKm: req.body.mileage_km || req.body.mileageKm,
+    mileageKm: mileage,
     condition: req.body.condition,
     fuelType: req.body.fuel_type || req.body.fuelType,
     transmission: req.body.transmission

@@ -23,5 +23,8 @@ export const aiPriceEstimateSchema = z.object({
   model: z.string().max(100).optional().nullable(),
   year: z.coerce.number().int().min(1886).max(2030),
   mileage_km: z.coerce.number().int().min(0).optional().default(0),
-  condition: z.enum(["new", "like_new", "good", "fair", "poor"]).optional().default("good")
+  mileageKm: z.coerce.number().int().min(0).optional().default(0),
+  condition: z.enum(["new", "like_new", "good", "fair", "poor"]).optional().default("good"),
+  fuelType: z.string().optional().nullable(),
+  transmission: z.string().optional().nullable()
 });
